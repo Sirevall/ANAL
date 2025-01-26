@@ -1,0 +1,17 @@
+CREATE TABLE sirevall.dBeaver_test_table AS
+SELECT
+    asset,
+    datetime AS hour,
+    AVG(rate) AS avg_price,
+    MAX(rate) AS max_price,
+    MIN(rate) AS min_price,
+    AVG(rate) OVER (PARTITION BY asset, DATE(datetime)) AS daily_avg_price
+FROM
+    sirevall.crypto_rates_raw
+GROUP BY
+    asset,
+    datetime,
+    rate
+ORDER BY
+    asset,
+    hour;
