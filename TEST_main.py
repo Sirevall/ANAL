@@ -111,7 +111,7 @@ def sql_from_dbeaver():
         conn, cursor = connect_db()
 
         cursor.execute("""
-        CREATE TABLE sirevall.dBeaver_petuhon_table AS
+        CREATE TABLE sirevall.crypto_rates_agg AS
         SELECT
             asset,
             datetime AS hour,
