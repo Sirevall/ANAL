@@ -12,6 +12,12 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - eto_baza
 
 volumes:
   postgres_data:
+
+networks:
+  eto_baza:
+    name: setka
