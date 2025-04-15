@@ -8,7 +8,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 def get_query(query_name):
-    with open("queries.sql", "r", encoding="utf-8") as f:
+    queries_path=os.getenv('QUERIES_FILE_PATH')
+    with open(queries_path, "r", encoding="utf-8") as f:
         content = f.read().strip().split("\n\n")  # Разделяем запросы по пустым строкам
         for block in content:
             lines = block.strip().split("\n")
